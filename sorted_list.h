@@ -1,5 +1,11 @@
+// Beatrix House
+
+#ifndef SORTED_LIST_H
+#define SORTED_LIST_H
+
 #include <string>
 using namespace std;
+
 const int MAX_ITEMS = 20;
 typedef string ItemType;
 
