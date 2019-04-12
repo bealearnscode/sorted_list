@@ -29,12 +29,14 @@ int main ()
         while(getline(inputFile, word))
         {
             // save the word inside the listOfWords object
-            listOfWords.Store(word);
+            listSorted.Insert(word);
         }
     }
     
+    listSorted.GetLength();
+    
     // print the list of words
-    listOfWords.PrintList();
+    listSorted.PrintList();
     
     // close the file
     inputFile.close();
@@ -50,39 +52,21 @@ SortedList::SortedList()
     length = 0;
 }
 
-void SortedList::Insert()
+void SortedList::Insert(ItemType item)
 {
-    if (length == MAX_ITEMS)
+    if(!(isFull())
     {
-        return true;
+        if (values[length -1] > item) 
+        {
+            values[length] = values[length -1];
+        }
+        else
+        {
+            values[length] = item;
+            length++;
+        }
     }
-    else
-    {
-        return false;
-    }
-}
-
-bool SortedList::IsEmpty()
-{
-    if (length == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
-
-
-void SortedList::Store(ItemType item)
-{
-    if (!IsFull())
-    {
-        values[length] = item;
-        length++;
-    }
+    
 }
 
 void SortedList::PrintList()
@@ -97,7 +81,6 @@ void SortedList::PrintList()
         {
             cout << values[i] << endl;
         }
-        cout << "There are " << GetLength() << " items in the list." << endl;
     }
 }
 
@@ -105,4 +88,31 @@ int SortedList::GetLength()
 {
     return length;
 }
+
+bool SortedList::IsEmpty()
+{
+    if (length == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool SortedList::IsFull()
+{
+    if (length == MAX_ITEMS)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+
+
     

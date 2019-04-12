@@ -1,7 +1,7 @@
 // Beatrix House
 
-#ifndef SORTED_LIST_H
-#define SORTED_LIST_H
+#ifndef SORTEDLIST_H
+#define SORTEDLIST_H
 
 #include <string>
 using namespace std;
@@ -39,3 +39,5 @@ private:
   int length;
   ItemType values[MAX_ITEMS];
 };
+
+#endif
